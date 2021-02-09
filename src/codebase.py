@@ -1,7 +1,7 @@
 """A set of dummy functions to test a continous integration pipeline."""
 
 
-VALID_TYPES = (complex, float, int)
+VALID_TYPES = (complex, float, int, str)
 
 
 def add(a: complex, b: complex) -> complex:

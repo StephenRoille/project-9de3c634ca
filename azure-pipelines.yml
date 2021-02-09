@@ -7,6 +7,11 @@
 trigger:
 - master
 
+# environment variables
+variables:
+- name: TESTING_PROFILE
+  value: ci
+
 pool:
   vmImage: ubuntu-latest
 strategy:
