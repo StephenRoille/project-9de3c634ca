@@ -1,7 +1,9 @@
 # CI/CD using Python 🐍, `pytest`, `coverage`, and `hypothesis` on Azure Pipelines 🚀
 
-> :bulb: You can skip the `Project Development` section by cloning the repository
+[![Build Status](https://dev.azure.com/stephenroille/project-9de3c634ca/_apis/build/status/StephenRoille.project-9de3c634ca?branchName=master)](
+https://dev.azure.com/stephenroille/project-9de3c634ca/_build/latest?definitionId=4&branchName=master)
 
+> :bulb: You can skip the `Project Development` section by cloning the repository
 
 ## Project Development
 
@@ -482,11 +484,21 @@ steps:
 ![create_project_azure_step_4_review](https://github.com/StephenRoille/project-9de3c634ca/blob/master/screenshots/create_project_azure_step_4_review.png)
 
 6. Go to your GitHub account select the `azure-pipelines` branch, you should see the
-build succeed;
+builds succeed;
 
 ![create_project_azure_step_5_successful_build_pull_request](https://github.com/StephenRoille/project-9de3c634ca/blob/master/screenshots/create_project_azure_step_5_successful_build_pull_request.png)
 
 7. Merge the pull request and delete the `azure-pipelines` branch;
 
 ![create_project_azure_step_6_delete_branch](https://github.com/StephenRoille/project-9de3c634ca/blob/master/screenshots/create_project_azure_step_6_delete_branch.png)
+
+
+## Add a badge to your GitHub repository
+
+This will indicate to your users that the tests pass,
+
+![create_project_azure_badge_step_1](https://github.com/StephenRoille/project-9de3c634ca/blob/master/screenshots/create_project_azure_badge_step_1.png)
+![create_project_azure_badge_step_2](https://github.com/StephenRoille/project-9de3c634ca/blob/master/screenshots/create_project_azure_badge_step_2.png)
+
+Add this url at the top of your README.md file (below the page title).
 
