@@ -416,3 +416,77 @@ git push -u origin master
 
 ## Configure the CI/CD Pipeline
 
+> :bulb: Follow the steps from this page for details:
+>
+> [GitHub integration with Azure Pipelines](
+https://azuredevopslabs.com/labs/vstsextend/github-azurepipelines/)
+
+1. Connect through GitHub (YAML);
+
+![create_project_azure_step_1_connect](https://github.com/StephenRoille/project-9de3c634ca/blob/master/screenshots/create_project_azure_step_1_connect.png)
+
+2. Select the GitHub repository you want to configure;
+
+![create_project_azure_step_2_select](https://github.com/StephenRoille/project-9de3c634ca/blob/master/screenshots/create_project_azure_step_2_select.png)
+
+3. Configure your pipeline using any template;
+
+![create_project_azure_step_3_configure](https://github.com/StephenRoille/project-9de3c634ca/blob/master/screenshots/create_project_azure_step_3_configure.png)
+
+4. Replace the content of the `azure-pipelines.yml` file;
+
+> :warning: Be sure to replace `vmImage: ubuntu-default` with `vmImage: ubuntu-latest`
+> since the former will make the build fail (at least on the day of writing).
+
+```yaml
+
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+strategy:
+  matrix:
+    Python36:
+      python.version: '3.6'
+    Python37:
+      python.version: '3.7'
+    Python38:
+      python.version: '3.8'
+    Python39:
+      python.version: '3.9'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(python.version)'
+  displayName: 'Use Python $(python.version)'
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install -r requirements-dev.txt
+  displayName: 'Install dependencies'
+
+- script: |
+    python -m pytest
+  displayName: 'Run tests with pytest and hypothesis'
+```
+
+5. Save/run the pipeline by opening a pull request on a new `azure-pipelines` branch;
+
+![create_project_azure_step_4_review](https://github.com/StephenRoille/project-9de3c634ca/blob/master/screenshots/create_project_azure_step_4_review.png)
+
+6. Go to your GitHub account select the `azure-pipelines` branch, you should see the
+build succeed;
+
+![create_project_azure_step_5_successful_build_pull_request](https://github.com/StephenRoille/project-9de3c634ca/blob/master/screenshots/create_project_azure_step_5_successful_build_pull_request.png)
+
+7. Merge the pull request and delete the `azure-pipelines` branch;
+
+![create_project_azure_step_6_delete_branch](https://github.com/StephenRoille/project-9de3c634ca/blob/master/screenshots/create_project_azure_step_6_delete_branch.png)
+
