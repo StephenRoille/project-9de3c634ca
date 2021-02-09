@@ -4,7 +4,7 @@
 VALID_TYPES = (complex, float, int, str)
 
 
-def addition(a: complex, b: complex) -> complex:
+def add(a: complex, b: complex) -> complex:
     """Add two numbers.
 
     Parameters
