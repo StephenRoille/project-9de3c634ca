@@ -26,10 +26,6 @@ def add(a: complex, b: complex) -> complex:
     TypeError
         if `b` is not :class:`complex` / :class:`float` / :class:`int`
     """
-    if not isinstance(a, VALID_TYPES):
-        raise TypeError(f"'a' must be {VALID_TYPES}, got {type(a)}.")
-    if not isinstance(b, VALID_TYPES):
-        raise TypeError(f"'b' must be {VALID_TYPES}, got {type(b)}.")
     return a + b
 
 
