@@ -1,10 +1,10 @@
 """A set of dummy functions to test a continous integration pipeline."""
 
 
-VALID_TYPES = (complex, float, int, str)
+VALID_TYPES = (complex, float, int)
 
 
-def add(a: complex, b: complex) -> complex:
+def addition(a: complex, b: complex) -> complex:
     """Add two numbers.
 
     Parameters
