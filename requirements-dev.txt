@@ -1,0 +1,5 @@
+-r requirements-docs.txt
+-r requirements-tests.txt
+-r requirements-true.txt
+
+python-dotenv

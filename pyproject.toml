@@ -1,0 +1,19 @@
+# ======
+# PYTEST
+# ======
+[tool.pytest.ini_options]
+minversion = "6.0"
+testpaths = ["tests"]
+
+# ========
+# COVERAGE
+# ========
+[tool.coverage.run]
+command_line = "-m pytest"
+omit = ["*/venv/*", "*/gui/*"]
+
+[tool.coverage.html]
+directory = "build/coverage/"
+
+[tool.coverage.report]
+omit = ["*/tests/*"]
